@@ -1,0 +1,6 @@
+<label style="display:inline">
+	<span class="view-to-edit-show" ng-show="is_edit==false">{{value}}</span>
+	<span class="view-to-edit-show" ng-show="!value && !is_edit">未设置</span>
+	<input ng-show="is_edit==true" ng-model="value" 
+	type="text" />
+</label>

@@ -1,0 +1,62 @@
+<div>
+	<h3><span ng-bind-html="'aeopAeProductPropertys'|AliexpressProductLabel"></span></h3>
+	<table class="table table-bordered aeopAeProductPropertys-table" width="100%">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="property in category_attrs|filter:{sku:false}">
+				<td>{{property.id}}</td>
+				<td width="120" ng-class="{red:property.required}">{{property.names.zh}}</td>
+				<td>
+					<select ng-if="property.attributeShowTypeValue=='list_box'" 
+					ng-model="property.selectedValue" 
+					ng-options="value.id as (value.names.en+'('+value.names.zh+')') for value in property.values"></select>
+					<div ng-if="property.attributeShowTypeValue=='check_box'">
+						<label ng-repeat="value in property.values">
+							<input type="checkbox" 
+							name="{{property.names.en}}" 
+							ng-model="value.is_selected" 
+							/>
+							{{value.names.en}}(<span style="font-size: 12px; color: #999">{{value.names.zh}}</span>)
+						</label>
+					</div>
+					<input ng-if="property.attributeShowTypeValue=='input' && !property.units" type="text" 
+					ng-model="property.selectedValue" />
+
+					<input ng-if="property.attributeShowTypeValue=='input' && property.units" type="text" 
+					ng-model="property.selectedValue[0]" />
+					<select ng-if="property.units" style="width:80px;"
+					ng-options="unit.unitName as unit.unitName for unit in property.units"
+					ng-init="unit.selectedValue[1]=unit.selectedValue[1]||'cm'"
+					ng-model="unit.selectedValue[1]" >
+						<option>{{property.units[0].unitName}}</option>}
+					</select>{{unit.rate}}
+
+					{{property.selectedValue}}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>自定义属性</h3>
+	<table class="table table-bordered" width="100%">
+		<tbody>
+			<tr ng-repeat="item in product_custom_attrs">
+				<td>
+					<input type="text" ng-model="item.attrName" />
+					<input type="text" ng-model="item.attrValue" />
+					<button class="btn" ng-click="product_custom_attrs.splice($index,1)">删除</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input value="添加自定义属性" class="btn" type="button" ng-click="product_custom_attrs.push({})"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

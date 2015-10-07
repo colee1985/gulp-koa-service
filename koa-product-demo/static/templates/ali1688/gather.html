@@ -1,0 +1,15 @@
+<div ng-controller="Ali1688GatherCtrl">
+	<form ng-submit="gatherDataByUrls()" name="gatherForm">
+		<textarea style="width:96%;min-height:300px;" ng-model="urls" placeholder="请输入阿里巴巴产品详情页网址,一行一个">
+			http://detail.1688.com/offer/1244183533.html
+			http://detail.1688.com/offer/1178914841.html
+		</textarea>
+		<input type="submit" class="btn" value="采集"/>
+		<input type="button" class="btn" ng-click="gatherProductByOrders()" value="采集已买到的产品"/>
+		<input type="text" ng-model="member_id" value="sll0510" placeholder="卖家ID">
+		<input type="button" class="btn" ng-click="gatherProductByMemberId()" value="采集店铺"/>
+	</form>
+	<ul style="width:200px; position: absolute;right:10px; top:0px; background: #eee">
+		<li ng-repeat="msg in gather_progress">{{msg}}</li>
+	</ul>
+</div>

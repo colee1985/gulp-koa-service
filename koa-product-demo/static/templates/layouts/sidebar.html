@@ -1,0 +1,36 @@
+
+<a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+<ul ng-controller="SidebarCtrl">
+	<li ui-sref-active="active"><a ui-sref="site"><i class="icon icon-home"></i> <span>仪表盘</span></a> </li>
+	<li ui-sref-active="active open" class="submenu"> <a ui-sref="ali1688"><i class="icon icon-info-sign"></i> <span>1688站</span> <span class="label label-important">2</span></a>
+		<ul>
+			<li ui-sref-active="sub-active"><a ui-sref="ali1688.gather">数据采集</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="ali1688.admin">产品列表</a></li>
+		</ul>
+	</li>
+	<li ui-sref-active="active open" class="submenu"> <a ui-sref="myproduct"><i class="icon icon-info-sign"></i> <span>我的产品管理</span> <span class="label label-important">4</span></a>
+		<ul>
+			<li ui-sref-active="sub-active"><a ui-sref="myproduct.admin" ui-sref-opts="{inherit: false}">产品列表</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="myproduct.create">添加</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="myproduct.update">修改</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="myproduct.detail">浏览</a></li>
+		</ul>
+	</li>
+	<li ui-sref-active="active open" class="submenu"> <a ui-sref="aliexpress"><i class="icon icon-info-sign"></i> <span>速卖通管理</span> <span class="label label-important">4</span></a>
+		<ul>
+			<li ui-sref-active="sub-active"><a ui-sref="aliexpress.admin" ui-sref-opts="{inherit: false}">产品列表</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="aliexpress.create">添加</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="aliexpress.update">修改</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="aliexpress.detail">浏览</a></li>
+		</ul>
+	</li>
+	<li ui-sref-active="active open" class="submenu"> <a ui-sref="product"><i class="icon icon-info-sign"></i> <span>产品管理</span> <span class="label label-important">4</span></a>
+		<ul>
+			<li ui-sref-active="sub-active"><a ui-sref="product.admin" ui-sref-opts="{inherit: false}">产品列表</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="product.create">添加</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="product.update">修改</a></li>
+			<li ui-sref-active="sub-active"><a ui-sref="product.detail">浏览</a></li>
+		</ul>
+	</li>
+	<li ui-sref-active="active open"> <a ui-sref="category"><i class="icon icon-signal"></i> <span>分类关联配置</span></a> </li>
+</ul>

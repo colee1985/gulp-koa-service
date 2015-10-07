@@ -1,0 +1,47 @@
+<div class="widget-box" ng-controller="CategoryAdminCtrl">
+	<table class="table table-bordered pull-left" width="100%">
+		<thead>
+			<tr>
+				<th>阿里巴巴分类ID</th>
+				<th>阿里巴巴分类路径</th>
+				<th>速卖通分类ID</th>
+				<th>速卖通分类名称</th>
+				<th>批处理产品属性</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="model in models">
+				<td>{{model.ali1688_cate_id}}</td>
+				<td ng-init="getProductCount(model)">
+					{{model.ali1688_cate_path}}
+					(商品数:{{model.product_count}})
+				</td>
+				<td>
+					{{model.aliexpress_cate_id}}
+				</td>
+				<td>
+					{{model.aliexpress_cate_name}}
+					<button ng-click="willSelectModel(model)" class="btn pull-right">选择</button>
+				</td>
+				<td><a ui-sref="category.attrconfig({cateId:model.aliexpress_cate_id})" class="btn">分类属性配置</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<form>
+		<div ng-show="form_is_shown==true" class="modal" style="width:950px; left:380px;">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="form_is_shown=false">&times;</button>
+				<h3>请选择分类</h3>
+			</div>
+			<div class="modal-body">
+				<div aliexpress-cate-select ng-model="categoryId"></div>
+			</div>
+			<div class="modal-footer">
+				<a class="btn" ng-click="form_is_shown=false">关闭</a>
+				<a class="btn btn-primary" ng-click="save()">保存</a>
+			</div>
+		</div>
+	</form>
+	<button class="btn btn-primary" ng-click="gatherByProducts()">从产品中提取分类路径</button>
+
+</div>

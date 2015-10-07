@@ -1,0 +1,82 @@
+<div class="widget-box">
+	<div class="widget-title">
+		<ul class="nav nav-tabs" ng-init="product.is_show='aliexpress'">
+			<li ng-class="{active:product.is_show=='source_of_ali1688'}">
+				<a data-toggle="tab" ng-click="product.is_show='source_of_ali1688'">
+					 1688货源
+				</a>
+			</li>
+			<li ng-class="{active:product.is_show=='aliexpress'}">
+				<a data-toggle="tab" ng-click="product.is_show='aliexpress'">
+					速卖通
+				</a>
+			</li>
+			<li ng-class="{active:product.is_show=='ebay'}">
+				<a data-toggle="tab" ng-click="product.is_show='ebay'">
+					EBAY ID：{{product.ebay_id}}
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="widget-content tab-content">
+		<div class="tab-pane" ng-class="{active:product.is_show=='source_of_ali1688'}">
+			<h6><span style="color:#ccc">({{product.source_of_ali1688.offerId}})</span>{{product.source_of_ali1688.subject.replace(' ','&nbsp;')}}</h6>
+			<a style="position: absolute; right:10px; top:10px;" href="{{product.source_of_ali1688.detailsUrl}}" target="_blank" title="">查看详情&gt;&gt;</a>
+			<div>
+				<span>
+					重量：{{product.source_of_ali1688.productUnitWeight}} KG
+				</span>
+				<span ng-if="product.source_of_ali1688.weight_cost">
+					运费预计：<strong>{{product.source_of_ali1688.weight_cost}}</strong>元
+				</span>
+				<span>
+					价格区间：
+					<span ng-repeat="pr in product.source_of_ali1688.priceRanges">
+						[{{pr.range}}]/<strong ng-if="$index==0">{{pr.price}}元</strong>
+						<i ng-if="$index>0">{{pr.price}}元</i>
+					</span>
+				</span>
+				<span ng-if="product.source_of_ali1688.unitPrice">
+					单价：{{product.source_of_ali1688.unitPrice}}元
+				</span>
+			</div>
+			<div>
+				卖家ID：{{product.source_of_ali1688.memberId}}
+			</div>
+			<ul>
+				<li style="display: inline-block; width:49.9%" ng-repeat="attr in product.source_of_ali1688.productFeatureList">{{attr.name}}: {{attr.value}}</li>
+			</ul>
+			<div ng-bind-html="product.detail"></div>
+		</div>
+		<div class="tab-pane" ng-class="{active:product.is_show=='aliexpress'}">
+			<h6>
+				<span style="color:#ccc">({{product.aliexpress.productId}})</span>
+				<span view-to-edit="product.aliexpress.subject"></span>
+			</h6>
+			<div>
+				关键词：
+				<span view-to-edit="product.aliexpress.keyword"></span>
+				<span view-to-edit="product.aliexpress.productMoreKeywords1"></span>
+				<span view-to-edit="product.aliexpress.productMoreKeywords2"></span>
+			</div>
+			<ul>
+				<li>
+					毛重:<span view-to-edit="product.aliexpress.grossWeight"></span>KG
+				</li>
+				<li style="color:red">
+					售价:$<span view-to-edit="product.aliexpress.productPrice"></span>
+				</li>
+			</ul>
+			<div>
+				<button class="btn" ng-click="aliexpressSave(product.aliexpress)">保存</button>
+				<button class="btn" ng-click="aliexpressPut(product.aliexpress)">发布或更新</button>
+				<a ng-click="product.detail_is_shown=!product.detail_is_shown">内容展开</a>
+				<a href="http://posting.aliexpress.com/wsproduct/edit_wholesale_product.htm?productId={{product.aliexpress.productId}}" target="_blank">到官网编辑</a>
+			</div>
+			<div ng-show="product.detail_is_shown" ng-bind-html="product.aliexpress.detail"></div>
+		</div>
+		<div class="tab-pane" ng-class="{active:product.is_show=='ebay'}">
+		  
+		</div>
+	</div>
+</div>

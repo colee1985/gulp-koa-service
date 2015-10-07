@@ -1,0 +1,25 @@
+.kt-pager-main {
+	display: inline-block;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.kt-pager-main > li {
+	display: inline-block;
+	list-style: none;
+	padding:5px 10px;
+	border:1px solid #ededed;
+	margin-right:2px;
+	border-radius: 2px;
+	text-transform:Capitalize;
+}
+.kt-pager-main > li > a {
+	color:#adadad;
+}
+
+.kt-pager-main .active > a {
+	color:#f62d29;
+}
+.kt-pager-home a,.kt-pager-prve a,.kt-pager-next a,.kt-pager-end a {
+	color:#353535;
+}

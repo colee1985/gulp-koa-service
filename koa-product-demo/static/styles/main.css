@@ -1,0 +1,23 @@
+#breadcrumb a {
+	font-size: 12px;
+}
+.nav-tabs li{
+	cursor: pointer;
+}
+#user-nav > ul > li > a {
+	font-size: 12px;
+}
+
+a {
+	cursor: pointer;
+}
+label{
+	display: inline;
+	padding-right:10px;
+}
+.red {
+	color: red;
+}
+.right {
+	text-align: right!important;
+}

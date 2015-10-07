@@ -1,0 +1,5 @@
+.product-update-edit-nav li{
+	cursor: pointer; 
+	display: inline-block;
+	padding: 0 5px;
+}

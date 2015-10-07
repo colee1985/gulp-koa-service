@@ -1,0 +1,14 @@
+.aliexpress-cate-select-ul{
+	height:300px;
+	overflow: auto;
+	
+}
+.aliexpress-cate-select-ul li{
+	cursor: pointer;
+}
+.aliexpress-cate-select-ul li:hover{
+	background: #999;
+}
+.aliexpress-cate-select-ul li.active{
+	background: #ccc
+}

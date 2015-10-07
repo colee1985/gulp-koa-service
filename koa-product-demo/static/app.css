@@ -1,0 +1,149 @@
+#breadcrumb a {
+	font-size: 12px;
+}
+.nav-tabs li{
+	cursor: pointer;
+}
+#user-nav > ul > li > a {
+	font-size: 12px;
+}
+
+a {
+	cursor: pointer;
+}
+label{
+	display: inline;
+	padding-right:10px;
+}
+.red {
+	color: red;
+}
+.right {
+	text-align: right!important;
+}
+.aliexpress-product-form label {
+	display: inline-block;
+	width: 180px;
+}
+.aliexpress-cate-select-ul{
+	height:300px;
+	overflow: auto;
+	
+}
+.aliexpress-cate-select-ul li{
+	cursor: pointer;
+}
+.aliexpress-cate-select-ul li:hover{
+	background: #999;
+}
+.aliexpress-cate-select-ul li.active{
+	background: #ccc
+}
+/*这是服务调用时外包的一层DIV*/
+.kt-alert-server {
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 0;
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+	z-index: 200;
+}
+/*指令调用部分*/
+.kt-alert-container{
+	position: relative;
+	display: inline-block;
+	font-size: 12px;
+	box-shadow: 2px 2px 10px #ccc;
+	border-radius: 4px;
+	color: #fff;
+	width: 560px;
+}
+.kt-alert-container a,.kt-alert-container a:link,.kt-alert-container a:active, .kt-alert-container a:hover {
+	color: #fff;
+}
+/*ICON共同属性*/
+.kt-alert-message-icon {
+	position: absolute;
+	top:12px;
+	left: 15px;
+	width: 16px;
+	height:16px;
+	background-repeat: no-repeat;
+}
+/*各种状态下显示ICON*/
+.kt-alert-success{
+	background: #31ca00;
+}
+.kt-alert-success .kt-alert-message-icon {
+	background-image: url('/images/uikit/7.png');
+}
+
+.kt-alert-error{
+	background: #fe0000;
+}
+.kt-alert-error .kt-alert-message-icon {
+	background-image: url('/images/uikit/5.png');
+}
+.kt-alert-warning{
+	background: #2893d9;
+}
+.kt-alert-warning .kt-alert-message-icon {
+	background-image: url('/images/uikit/23.png');
+}
+/*消息内容区*/
+.kt-alert-message-content {
+	padding: 10px 60px;
+	text-align: center;
+	min-height: 20px;
+}
+
+/*关闭按钮*/
+.kt-alert-message-closebtn{
+	position: absolute;
+	top:12px;
+	right:10px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background-image: url('/images/uikit/6.png');
+	background-repeat: no-repeat;
+}
+.kt-pager-main {
+	display: inline-block;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.kt-pager-main > li {
+	display: inline-block;
+	list-style: none;
+	padding:5px 10px;
+	border:1px solid #ededed;
+	margin-right:2px;
+	border-radius: 2px;
+	text-transform:Capitalize;
+}
+.kt-pager-main > li > a {
+	color:#adadad;
+}
+
+.kt-pager-main .active > a {
+	color:#f62d29;
+}
+.kt-pager-home a,.kt-pager-prve a,.kt-pager-next a,.kt-pager-end a {
+	color:#353535;
+}
+.product-admin-content span {
+	margin: 0 5px;
+}
+.product-update-edit-nav li{
+	cursor: pointer; 
+	display: inline-block;
+	padding: 0 5px;
+}
+#sidebar > ul > li.active .sub-active a{
+	color: #27a9e3;
+}

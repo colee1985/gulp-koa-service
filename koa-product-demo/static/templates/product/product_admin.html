@@ -1,0 +1,76 @@
+<div class="widget-box" ng-controller="ProductAdminCtrl">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th width="60">缩略图</th>
+				<th>标题</th>
+				<th>分类</th>
+				<th width="80">编辑</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td>
+					<form ng-submit="toSearch()">
+						<input type="text" name="" ng-model="search.subject" 
+						placeholder="">
+						<button class="btn" type="submit">查询</button>
+					</form>
+				</td>
+				<td><input type="text" name="" ng-model="search.postCategryId" placeholder=""></td>
+				<td></td>
+			</tr>
+			<tr ng-repeat="product in products">
+				<td><img ng-src="{{product.ali1688.imageList[0].size64x64URL}}" alt=""></td>
+				<td class="product-admin-content">
+					<h6>({{product._id}}){{product.ali1688.subject.replace(' ','&nbsp;')}}</h6>
+					<div>
+						<span>
+							重量：{{product.ali1688.productUnitWeight}} KG
+						</span>
+						<span ng-if="product.weight_cost">
+							运费预计：<strong>{{product.weight_cost}}</strong>元
+						</span>
+						<span>
+							价格区间：
+							<span ng-repeat="pr in product.ali1688.priceRanges">
+								[{{pr.range}}]/<strong ng-if="$index==0">{{pr.price}}元</strong>
+								<i ng-if="$index>0">{{pr.price}}元</i>
+							</span>
+						</span>
+						<span ng-if="product.ali1688.unitPrice">
+							单价：{{product.ali1688.unitPrice}}元
+						</span>
+					</div>
+					<div>
+						<span ng-if="product.aliexpress_productId" style="color: #00f">速卖通产品ID：{{product.aliexpress_productId}}</span>
+						<span>
+							售价:
+							<color style="color:red">${{product.advise_price}}</color>
+							￥{{product.advise_price*6.13}}
+						</span>
+						<span>
+							总成本:
+							<strong>{{product.total_cost}}</strong>+8=({{product.total_cost+8}})元
+						</span>
+						<span>
+							利润:
+							{{(product.advise_price*6.15)-product.total_cost}}-8元
+						</span>
+					</div>
+				</td>
+				<td>{{product.ali1688.postCategryId}}</td>
+				<td>
+					<a class="btn" target="_blank" ui-sref="product.update({_id: product._id})">编辑</a>
+					<button class="btn" ng-click="createSmt(product)">一键生成SMT数据</button>
+					<button class="btn" ng-if="!product.aliexpress_productId" ng-click="put(product)">发布SMT</button>
+					<button class="btn" ng-if="product.aliexpress_productId" ng-click="put(product)">更新SMT</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="text-align: right;">
+		<div kt-pager="KtPager"></div>
+	</div>
+</div>

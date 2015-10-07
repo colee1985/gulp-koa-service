@@ -1,0 +1,65 @@
+<div class="widget-box" ng-controller="MyproductAdminCtrl">
+	<div style="text-align: right;">
+		<div kt-pager="KtPager"></div>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th width="60">缩略图</th>
+				<th>标题</th>
+				<th width="80">编辑</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td>
+					<form ng-submit="toSearch()">
+						<input type="text" name="" ng-model="search.query.subject" 
+						placeholder="我的产品标题">
+						<input type="text" name="" ng-model="search.query['aliexpress.productId']" 
+						placeholder="速卖通产品ID">
+						<input type="text" name="" ng-model="search.query['aliexpress.subject']" 
+						placeholder="速卖通标题">
+						<button class="btn" type="submit">查询</button>
+					</form>
+				</td>
+				<td></td>
+			</tr>
+			<tr ng-repeat="product in products">
+				<td><img ng-src="{{product.thumbnail}}" alt=""></td>
+				<td class="product-admin-content">
+					<h6>
+						<span style="color:#ccc">({{product._id}})</span>
+						<div view-to-edit="product.subject"></div>
+					</h6>
+					<div>
+						关键词:<span view-to-edit="product.keyword"></span>
+					</div>
+					<div>
+						<span>分类：{{product.postCategryId}}</span>
+						<span>
+							重量：<span view-to-edit="product.weight"></span> KG
+						</span>
+						<span>成本：￥{{product.rmb_cost}} ${{product.usd_cost}}</span>
+						<span>
+							运费预计：￥{{product.rmb_weight_cost}} ${{product.usd_weight_cost}}
+						</span>
+						<span>总成本：￥{{product.rmb_total_cost}}/{{product.min_rmb_total_cost}} ${{product.usd_total_cost}}/{{product.min_usd_total_cost}}</span>
+					</div>
+					<div>
+						绑定速卖通ID：<span view-to-edit="product.aliexpress_id"></span>
+					</div>
+					<div ng-include="'templates/myproduct/_tabs.html'"></div>
+				</td>
+				<td>
+					<p><button class="btn" ng-click="createAliexpress(product)">生成SMT数据</button></p>
+					<p><button class="btn" ng-click="save(product)">保存</button></p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="text-align: right;">
+		<div kt-pager="KtPager"></div>
+	</div>
+</div>

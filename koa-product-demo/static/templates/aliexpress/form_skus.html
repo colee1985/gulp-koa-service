@@ -1,0 +1,54 @@
+<div>
+	<div class="date badge badge-warning">注意：这个功能只能查看，暂时不支持编辑</div>
+	<h3><span ng-bind-html="'aeopAeProductSKUs'|AliexpressProductLabel"></span></h3>
+	<div ng-if="sku_attrs[0]">
+		<h4>{{sku_attrs[0].names.zh}}</h4>
+		<label ng-repeat="sku_attr in sku_attrs[0].values" style="white-space:nowrap;">
+			<input type="checkbox" name="aeopAeProductSKUs" 
+			ng-model="sku_attr.is_selected"
+			/>
+			{{sku_attr.names.en}}(<span style="font-size:12px; color:{{sku_attr.names.en}}">{{sku_attr.names.zh}}</span>)
+		</label>
+	</div>
+	<div ng-if="sku_attrs[1]">
+		<h4>{{sku_attrs[1].names.zh}}</h4>
+		<label ng-repeat="sku_attr in sku_attrs[1].values" style="white-space:nowrap;">
+			<input type="checkbox" name="aeopAeProductSKUs" 
+			ng-model="sku_attr.is_selected"
+			/>
+			{{sku_attr.names.en}}(<span style="font-size:12px; color:{{sku_attr.names.en}}">{{sku_attr.names.zh}}</span>)
+		</label>
+	</div>
+	<div ng-if="sku_attrs[2]">
+		<h4>{{sku_attrs[2].names.zh}}</h4>
+		<label ng-repeat="sku_attr in sku_attrs[2].values" style="white-space:nowrap;">
+			<input type="checkbox" name="aeopAeProductSKUs" 
+			ng-model="sku_attr.is_selected"
+			/>
+			{{sku_attr.names.en}}(<span style="font-size:12px; color:{{sku_attr.names.en}}">{{sku_attr.names.zh}}</span>)
+		</label>
+	</div>
+	
+	<ul>
+		<li ng-repeat="sku in select_skus" style="border:1px solid #ccc">
+			<div class="control-group">
+				<label class="control-label">自定义名称</label>
+				<div class="controls">
+					<input ng-model="sku.aeopSKUProperty[0].propertyValueDefinitionName"  class="tip" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">价格</label>
+				<div class="controls">
+					<input ng-model="sku.skuPrice" style="width:80px;" /> 库存<input ng-model="sku.ipmSkuStock" style="width:80px;" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">图片</label>
+				<div class="controls">
+					<input ng-model="sku.aeopSKUProperty[0].skuImage" />{{sku.aeopSKUProperty[0]}}
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

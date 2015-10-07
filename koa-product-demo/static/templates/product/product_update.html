@@ -1,0 +1,14 @@
+<div ng-controller="ProductUpdateCtrl">
+
+	<div>
+		绑定ID：
+		<input type="text" ng-model="product.aliexpress_productId" placeholder="请输入要绑定的SMT ID" />
+		<input type="button" class="btn" value="绑定" ng-click="bindSmtId(product)">
+	</div>
+	<ul class="product-update-edit-nav">
+		<li ng-click="setEdit(product.aliexpress_zh)"><a title="">编辑中文</a></li>
+		<li ng-click="setEdit(product.aliexpress_en)"><a title="">编辑英文</a></li>
+		<li ng-click="windowEdit(product)"><a title="">进入速卖通网站编辑</a></li>
+	</ul>
+	<div ng-include="'templates/product/aliexpress_product_form.html'"></div>
+</div>

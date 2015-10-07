@@ -1,0 +1,57 @@
+{
+  "name": "gulp-koa-service",
+  "description": "koa development and debugging, restart it",
+  "version": "0.0.5",
+  "homepage": "",
+  "author": {
+    "name": "CoLee",
+    "email": "5969226@qq.com",
+    "url": "http://www.99n9.com/"
+  },
+  "main": "./index.js",
+  "keywords": [
+    "gulpplugin",
+    "koa"
+  ],
+  "dependencies": {
+    "through": "~2.3.4",
+    "gulp-util": "~2.2.5"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": ""
+    }
+  ],
+  "_id": "gulp-koa-service@0.0.5",
+  "_shasum": "0b45ca526e4c32400bcdaa41dbf1c3a40aeea553",
+  "_from": "gulp-koa-service@>=0.0.5 <0.0.6",
+  "_npmVersion": "2.5.1",
+  "_nodeVersion": "0.12.0",
+  "_npmUser": {
+    "name": "colee",
+    "email": "5969226@qq.com"
+  },
+  "maintainers": [
+    {
+      "name": "colee",
+      "email": "5969226@qq.com"
+    }
+  ],
+  "dist": {
+    "shasum": "0b45ca526e4c32400bcdaa41dbf1c3a40aeea553",
+    "tarball": "http://registry.npmjs.org/gulp-koa-service/-/gulp-koa-service-0.0.5.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/gulp-koa-service/-/gulp-koa-service-0.0.5.tgz"
+}

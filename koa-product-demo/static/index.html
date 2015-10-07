@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="SuMaiTong">
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+	<link rel="stylesheet" type="text/css" href="./vender/angular/angular-carousel.min.css">
+	<link rel="stylesheet" href="./vender/matrix-admin00/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./vender/matrix-admin00/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="./vender/matrix-admin00/css/fullcalendar.css" />
+	<link rel="stylesheet" href="./vender/matrix-admin00/css/matrix-style.css" />
+	<link rel="stylesheet" href="./vender/matrix-admin00/css/matrix-media.css" />
+	<link href="./vender/matrix-admin00/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./vender/matrix-admin00/css/jquery.gritter.css" />
+	<link rel="stylesheet" type="text/css" href="./app.css">
+	
+	<script src="./vender/q/q.js"></script>
+	<script src="./vender/cryptojs/2.5.3.min.js"></script>
+	<script src="./vender/jQuery/jquery.min.js"></script>
+	<script src="./vender/jquery-indexeddb-0.1.0/jquery.indexeddb.js"></script>
+	<script src="./vender/angular/angular.min.js"></script>
+	<script src="./vender/angular/angular-ui-router-0.2.12.min.js"></script>
+	<script src="./vender/bower-angular-translate-2.4.2/angular-translate.min.js"></script>
+	<script src="./vender/angular/angular-sanitize.min.js"></script>
+	<script src="./vender/angular/angular-messages.min.js"></script>
+	<script src="./vender/angular/angular-md5.js"></script>
+	<script src="./vender/angular/angular-animate.js"></script>
+	<script src="./vender/underscore/underscore-1.5.2.js"></script>
+	<script src="./vender/bootstrap/v2.3.2/js/bootstrap.min.js"></script>
+	<script src="./app.js"></script>
+
+	<title>SMT</title> 
+</head>
+<body>
+	<div ng-include="'templates/layouts/header.html'">header</div>
+	<!--sidebar-menu-->
+	<div id="sidebar" ng-include="'templates/layouts/sidebar.html'"></div>
+	<!--sidebar-menu-->
+	<div id="content" ui-view="container">
+		<div ng-include="'templates/demo/ui.html'"></div>
+	</div>
+	<div ng-include="'templates/layouts/footer.html'">footer</div>
+</body>
+</html>

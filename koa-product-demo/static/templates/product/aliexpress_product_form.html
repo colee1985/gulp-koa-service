@@ -1,0 +1,174 @@
+<h3>产品更新</h3>
+<div class="widget-box aliexpress-product-form">
+	<div ng-init="tab_number=0" class="widget-title">
+		<ul class="nav nav-tabs">
+			<li ng-click="tab_number=0" ng-class="{active:tab_number==0}"><a title="">产品信息</a></li>
+			<li ng-click="tab_number=1" ng-class="{active:tab_number==1}"><a title="">产品属性</a></li>
+			<li ng-click="tab_number=2" ng-class="{active:tab_number==2}"><a title="">价格属性</a></li>
+			<li ng-click="tab_number=3" ng-class="{active:tab_number==3}"><a title="">详情</a></li>
+		</ul>
+	</div>
+	<form class="widget-content tab-content form-horizontal" ng-controller="AliexpressProductFormCtrl" ng-submit="submit()">
+		<div ng-show="tab_number==0">
+			<table class="table table-bordered" width="100%">
+				<tbody>
+					<tr>
+						<td class="right" width="120"><span ng-bind-html="'productId'|AliexpressProductLabel"></span></td>
+						<td><input ng-model="product_data.productId" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'deliveryTime'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.deliveryTime" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'categoryId'|AliexpressProductLabel"></span>:</td>
+						<td>
+							<input ng-model="product_data.categoryId" />
+							<button type="button" ng-click="show_select_cate=true;">选择</button>
+							<button ng-if="show_select_cate" ng-click="product_data.categoryId=categoryId">保存</button>
+							<div aliexpress-cate-select ng-model="categoryId" ng-show="show_select_cate"></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'subject'|AliexpressProductLabel"></span>:</td>
+						<td>
+							<input ng-model="product_data.subject" style="width:90%" />
+							{{product_data.subject.length}}
+						</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'keyword'|AliexpressProductLabel"></span>:</td>
+						<td>
+							<input ng-model="product_data.keyword" style="width:90%" />*
+						</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'productMoreKeywords1'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.productMoreKeywords1" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'productMoreKeywords2'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.productMoreKeywords2" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'summary'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.summary" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'groupId'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.groupId" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'promiseTemplateId'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.promiseTemplateId" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'productPrice'|AliexpressProductLabel"></span>:</td>
+						<td>
+							<input ng-model="product_data.productPrice" />
+						</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'freightTemplateId'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.freightTemplateId" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'isImageDynamic'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.isImageDynamic" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'imageURLs'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.imageURLs" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'isImageWatermark'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.isImageWatermark" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'productUnit'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.productUnit" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'packageType'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.packageType" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'lotNum'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.lotNum" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'packageLength'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.packageLength" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'packageWidth'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.packageWidth" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'packageHeight'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.packageHeight" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'grossWeight'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.grossWeight" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'isPackSell'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.isPackSell" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'baseUnit'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.baseUnit" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'addUnit'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.addUnit" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'addWeight'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.addWeight" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'wsValidNum'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.wsValidNum" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'src'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.src" />
+							*</td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'bulkOrder'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.bulkOrder" /></td>
+					</tr>
+					<tr>
+						<td class="right"><span ng-bind-html="'bulkDiscount'|AliexpressProductLabel"></span>:</td>
+						<td><input ng-model="product_data.bulkDiscount" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div ng-show="tab_number==1" ng-include="'templates/product/_aliexpress_product_form_attributes.html'">
+		</div>
+		<div ng-show="tab_number==2" ng-include="'templates/product/_aliexpress_product_form_skus.html'">
+		</div>
+		<div ng-show="tab_number==3">
+			<span ng-bind-html="'detail'|AliexpressProductLabel"></span>:
+			<input ng-model="product_data.detail" />*
+			<div ng-bind-html="product_data.detail"></div>
+		</div>
+		<div>
+			<input type="submit" class="btn" name="" value="保存" />
+		</div>
+	</form>
+</div>

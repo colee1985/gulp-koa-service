@@ -1,0 +1,61 @@
+<div class="widget-box" ng-controller="Ali1688AdminCtrl">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th width="60">缩略图</th>
+				<th>标题</th>
+				<th>分类</th>
+				<th width="80">编辑</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td>
+					<form ng-submit="toSearch()">
+						<input type="text" name="" ng-model="search.subject" 
+						placeholder="">
+						<button class="btn" type="submit">查询</button>
+					</form>
+				</td>
+				<td><input type="text" name="" ng-model="search.postCategryId" placeholder=""></td>
+				<td></td>
+			</tr>
+			<tr ng-repeat="product in products">
+				<td><img ng-src="{{product.imageList[0].size64x64URL}}" alt=""></td>
+				<td class="product-admin-content">
+					<h6>({{product._id}}){{product.subject.replace(' ','&nbsp;')}}</h6>
+					<div>
+						<span>
+							重量：{{product.productUnitWeight}} KG
+						</span>
+						<span ng-if="product.weight_cost">
+							运费预计：<strong>{{product.weight_cost}}</strong>元
+						</span>
+						<span>
+							价格区间：
+							<span ng-repeat="pr in product.priceRanges">
+								[{{pr.range}}]/<strong ng-if="$index==0">{{pr.price}}元</strong>
+								<i ng-if="$index>0">{{pr.price}}元</i>
+							</span>
+						</span>
+						<span ng-if="product.unitPrice">
+							单价：{{product.unitPrice}}元
+						</span>
+					</div>
+					<ul>
+						<li style="display: inline-block; width:49.9%" ng-repeat="attr in product.productFeatureList">{{attr.name}}: {{attr.value}}</li>
+					</ul>
+				</td>
+				<td>{{product.postCategryId}}</td>
+				<td>
+					<button class="btn" ng-click="addToMyproduct(product)">加入我的产品库</button>
+					<button class="btn" ng-click="regether(product)">重新采集</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="text-align: right;">
+		<div kt-pager="KtPager"></div>
+	</div>
+</div>

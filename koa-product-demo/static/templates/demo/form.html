@@ -1,0 +1,71 @@
+<div class="widget-box">
+	<div class="widget-title"> 
+		<span class="icon"> <i class="icon-align-justify"></i> </span>
+		<ul class="nav nav-tabs">
+			<li ng-click="tab_number=0" ng-class="{active:tab_number==0}"><a title="">产品信息</a></li>
+			<li ng-click="tab_number=1" ng-class="{active:tab_number==1}"><a title="">产品属性</a></li>
+			<li ng-click="tab_number=2" ng-class="{active:tab_number==2}"><a title="">价格属性</a></li>
+		</ul>
+	</div>
+	<div class="widget-content nopadding">
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label">Tooltip Input</label>
+				<div class="controls">
+					<input type="text" placeholder="Hover for tooltip…" data-title="A tooltip for the input" class=" tip" data-original-title="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Type ahead Input</label>
+				<div class="controls">
+					<input type="text" placeholder="Type here for auto complete…" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="" class="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Prepended Input</label>
+				<div class="controls">
+					<div class="input-prepend"> <span class="add-on">#</span>
+						<input type="text" placeholder="prepend" class="">
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Appended Input</label>
+				<div class="controls">
+					<div class="input-append">
+						<input type="text" placeholder="5.000" class="">
+						<span class="add-on">$</span> 
+					</div>
+				</div>
+			</div>
+			<div class="control-group warning">
+				<label class="control-label" for="inputWarning">Input with warning</label>
+				<div class="controls">
+					<input type="text" id="inputWarning" class="">
+					<span class="help-inline">Something may have gone wrong</span> 
+				</div>
+			</div>
+			<div class="control-group error">
+				<label class="control-label" for="inputError">Input with error</label>
+				<div class="controls">
+					<input type="text" id="inputError" class="">
+					<span class="help-inline">Please correct the error</span> 
+				</div>
+			</div>
+			<div class="control-group info">
+				<label class="control-label" for="inputInfo">Input with info</label>
+				<div class="controls">
+					<input type="text" id="inputInfo" class="">
+					<span class="help-inline">Username is already taken</span> 
+				</div>
+			</div>
+			<div class="control-group success">
+				<label class="control-label" for="inputSuccess">Input with success</label>
+				<div class="controls">
+					<input type="text" id="inputSuccess" class="">
+					<span class="help-inline">Woohoo!</span> 
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

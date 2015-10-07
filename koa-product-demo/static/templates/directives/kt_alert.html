@@ -1,0 +1,8 @@
+<div class="kt-alert-container"
+ng-class="{'kt-alert-success':status=='success','kt-alert-error':status=='error','kt-alert-warning':status=='warning'}">
+	<div class="kt-alert-message-box">
+		<i class="kt-alert-message-icon"></i>
+		<div class="kt-alert-message-content" ng-transclude></div>
+		<i class="kt-alert-message-closebtn" ng-click="alertClose()"></i>
+	</div>
+</div>

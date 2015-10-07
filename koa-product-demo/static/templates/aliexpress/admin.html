@@ -1,0 +1,83 @@
+<div class="widget-box" ng-controller="AliexpressAdminCtrl">
+	<button class="btn" ng-click="syncAllToLocal()" type="button">同步到本地</button>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th width="60">缩略图</th>
+				<th>标题</th>
+				<th>分类</th>
+				<th width="80">编辑</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td>
+					<form ng-submit="toSearch()">
+						<input type="text" name="" ng-model="search.query.subject" 
+						placeholder="标题">
+						<input type="text" name="" ng-model="search.query.productId" 
+						placeholder="速卖通产品ID">
+						<button class="btn" type="submit">查询</button>
+					</form>
+				</td>
+				<td><input type="text" name="" ng-model="search.postCategryId" placeholder=""></td>
+				<td></td>
+			</tr>
+			<tr ng-repeat="product in products">
+				<td><img ng-src="{{product.thumbnail}}" alt=""></td>
+				<td class="product-admin-content">
+					<h6><span style="color:#ccc">({{product._id}})</span>{{product.subject.replace(' ','&nbsp;')}}</h6>
+					<div>
+						<span>
+							毛重：{{product.grossWeight}} KG
+						</span>
+						<span style="color:red">售价：${{product.productPrice}}</span>
+					</div>
+					<div>
+						<span>productId: {{product.productId}}</span>
+						<span>
+							source_of_ali1688_id:
+							<em ng-if="product.source_of_ali1688._id">{{product.source_of_ali1688._id}}</em>
+							<em ng-if="!product.source_of_ali1688._id" style="color:red">未设置货源</em>
+						</span>
+						<span ng-init="getMyproductByAliexpress(product)"></span>
+					</div>
+					<div style="background: #eee; padding:0 10px; border:1px solid #ccc; position: relative">
+						<h6><span style="color:#ccc">({{product.source_of_ali1688.offerId}})</span>{{product.source_of_ali1688.subject.replace(' ','&nbsp;')}}</h6>
+						<a style="position: absolute; right:10px; top:10px;" href="{{product.source_of_ali1688.detailsUrl}}" target="_blank" title="">查看详情&gt;&gt;</a>
+						<div>
+							<span>
+								重量：{{product.source_of_ali1688.productUnitWeight}} KG
+							</span>
+							<span ng-if="product.source_of_ali1688.weight_cost">
+								运费预计：<strong>{{product.source_of_ali1688.weight_cost}}</strong>元
+							</span>
+							<span>
+								价格区间：
+								<span ng-repeat="pr in product.source_of_ali1688.priceRanges">
+									[{{pr.range}}]/<strong ng-if="$index==0">{{pr.price}}元</strong>
+									<i ng-if="$index>0">{{pr.price}}元</i>
+								</span>
+							</span>
+							<span ng-if="product.source_of_ali1688.unitPrice">
+								单价：{{product.source_of_ali1688.unitPrice}}元
+							</span>
+						</div>
+						<ul>
+							<li style="display: inline-block; width:49.9%" ng-repeat="attr in product.source_of_ali1688.productFeatureList">{{attr.name}}: {{attr.value}}</li>
+						</ul>
+					</div>
+				</td>
+				<td>{{product.postCategryId}}</td>
+				<td>
+					<button class="btn" ng-click="syncByPid(product.productId)">同步</button>
+					<a ng-click="del(product._id)" title="">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="text-align: right;">
+		<div kt-pager="KtPager"></div>
+	</div>
+</div>

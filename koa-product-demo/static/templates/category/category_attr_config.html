@@ -1,0 +1,30 @@
+<div ng-controller="CategoryAttrConfigCtrl">
+	<form ng-submit="saveAttrsConfig()">
+		<ul>
+			<li ng-repeat="(key,attr) in aliexpress_cate_configs">
+				<span style="display: inline-block; width:120px; text-align: right">{{key}} | {{attr.name}}</span>
+				<select
+					ng-options="cate_attr.id as cate_attr.names.zh for cate_attr in aliexress_attrs" 
+					ng-model="attr.ref_cate_id" ng-change="onSelectedAttr(attr, key)"
+					ng-init="onSelectedAttr(attr, key)">
+					<option value="">自定义属性</option>
+				</select>
+				<ul ng-if="ref_cates[key].id" style="padding-left:120px;">
+					<li ng-repeat="(vk, value) in attr.values">
+						<span ng-init="value=value2string(value)" style="display: inline-block; width:50px; text-align: right">{{value}}</span>
+						<select ng-if="attr.attributeShowTypeValue!='input'"
+							ng-options="check_value.id as check_value.names.zh for check_value in ref_cates[key].values" 
+							ng-model="attr.ref[value]">
+						</select>
+						<input type="text" ng-model="attr.ref[value]" ng-init="attr.ref[value]=attr.ref[value]||value"
+						ng-if="attr.attributeShowTypeValue=='input'"/>
+						{{ref_cates[key].inputType}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div>
+			<input type="submit" class="btn" value="保存" />
+		</div>
+	</form>
+</div>

@@ -1,0 +1,17 @@
+<div>
+	<select size="10" 
+	ng-options="category as category.names.zh for category in categorys" 
+	ng-change="onSelectedItem(0)"
+	ng-model="selects[0]"></select>
+	<select size="10" ng-options="category as category.names.zh for category in selects[0].childs" 
+	ng-change="onSelectedItem(1)"
+	ng-model="selects[1]"></select>
+	<select size="10" ng-options="category as category.names.zh for category in selects[1].childs" 
+	ng-change="onSelectedItem(2)"
+	ng-if="selects[1].childs"
+	ng-model="selects[2]"></select>
+	<select size="10" ng-options="category as category.names.zh for category in selects[2].childs" 
+	ng-change="onSelectedItem(3)"
+	ng-if="selects[2].childs"
+	ng-model="selects[3]"></select>
+</div>

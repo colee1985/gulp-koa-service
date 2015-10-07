@@ -1,0 +1,45 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> 
+<script type="text/javascript" src="js/jquery.html5uploader.min.js"></script> 
+<script type="text/javascript"> 
+$(function() {  
+    $("#dropbox, #multiple").html5Uploader({  
+        name: "foo",  
+        postUrl: "bar.aspx"      
+    });  
+});  
+</script> 
+<div id="dropbox"></div> 
+<input id="multiple" type="file" multiple> 
+
+参数设定：
+
+◆ name: 上传字段标示
+
+◆ postUrl: 文件数据处理URL
+
+◆ onClientAbort: 读取操作终止时调用
+
+◆ onClientError: 出错时调用
+
+◆ onClientLoad: 读取操作成功时调用
+
+◆ onClientLoadEnd: 无论是否成功，读取完成时调用。通常在onload和onerror后调用
+
+◆ onClientLoadStart: 读取将要开始时调用
+
+◆ onClientProgress: 数据在读取过程中周期性调用
+
+◆ onServerAbort: post操作结束时调用
+
+◆ onServerError: 错误发生时调用
+
+◆ onServerLoad: post操作成功时调用
+
+◆ onServerLoadStart: post数据将要开始时调用
+
+◆ onServerProgress: 数据正在被post的过程中周期性调用
+
+◆ onServerReadyStateChange: 一个javascript功能对象无论任何时候readyState属性变化时调用。callback由用户界面现成调用。
+
+
+onSuccess: 成功时
