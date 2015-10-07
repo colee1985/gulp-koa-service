@@ -1,7 +1,7 @@
 {
   "name": "gulp-koa-service",
   "description": "koa development and debugging, restart it",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "",
   "author": {
     "name": "CoLee",
