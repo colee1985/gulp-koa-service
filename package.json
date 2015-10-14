@@ -1,7 +1,7 @@
 {
   "name": "gulp-koa-service",
   "description": "koa development and debugging, restart it",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "homepage": "",
   "author": {
     "name": "CoLee",
@@ -14,6 +14,7 @@
     "koa"
   ],
   "dependencies": {
+    "deepmerge": "^0.2.10",
     "through": "~2.3.4",
     "gulp-util": "~2.2.5"
   },
